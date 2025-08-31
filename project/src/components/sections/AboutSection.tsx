@@ -67,23 +67,23 @@ const AboutSection: React.FC = () => {
             </h3>
             
             <div className="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
-              <p>
-                A passionate and dedicated fresher in the field of software development, 
-                eager to contribute to innovative projects and grow in the tech industry. 
-                With a strong foundation in programming and a keen interest in emerging technologies.
-              </p>
-              
-              <p>
-                I specialize in full-stack development with modern technologies like React, 
-                Node.js, and cloud platforms. My goal is to create efficient, scalable, 
-                and user-friendly applications that solve real-world problems.
-              </p>
-              
-              <p>
-                When I'm not coding, you'll find me exploring new technologies, writing 
-                tech blogs, crafting poetry, or contributing to open-source projects. 
-                I believe in continuous learning and staying updated with industry trends.
-              </p>
+             <p>
+  Arihant Jain is a Full Stack Developer and AI/ML Engineer with expertise in modern web development and artificial intelligence. 
+  He is proficient in <strong>Python</strong>, <strong>JavaScript</strong>, <strong>TypeScript</strong>, and <strong>C++</strong>, with a strong foundation in programming and problem-solving skills.
+</p>
+
+<p>
+  I specialize in full-stack development using technologies like <strong>React.js</strong>, <strong>Next.js</strong>, <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>Tailwind CSS</strong>, <strong>Node.js</strong>, <strong>Express.js</strong>, 
+  <strong>MongoDB</strong>, <strong>PostgreSQL</strong>, <strong>REST APIs</strong>, and <strong>GraphQL</strong>. In AI & ML, I work with <strong>scikit-learn</strong>, <strong>PyTorch</strong>, <strong>TensorFlow</strong>, <strong>NLP</strong>, and <strong>LangChain</strong>, 
+  building intelligent and scalable solutions.
+</p>
+
+<p>
+  I am skilled with development and DevOps tools including <strong>Git</strong>, <strong>GitHub</strong>, <strong>Docker</strong>, <strong>Postman</strong>, <strong>VS Code</strong>, and <strong>CI/CD workflows</strong>, 
+  and experienced deploying applications on cloud platforms like <strong>AWS</strong> and <strong>Vercel</strong>. 
+  I am passionate about continuously learning, exploring new technologies, and contributing to innovative projects.
+</p>
+
             </div>
 
             <motion.div
