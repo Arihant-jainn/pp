@@ -47,7 +47,7 @@ const AboutSection: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-xl opacity-30" />
               <div className="relative w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 rounded-full flex items-center justify-center overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+                  src="src/assets/text-behind-image.png?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
                   alt="Arihant Jain"
                   className="w-full h-full object-cover"
                 />
