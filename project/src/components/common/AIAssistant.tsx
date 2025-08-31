@@ -8,16 +8,60 @@ const AIAssistant: React.FC = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hi! I'm Arihant's AI assistant. I can help you learn more about his skills, projects, and experience. What would you like to know?",
+      text: "Hi! I'm Arihant's AI assistant. I can help you learn more about his profile, skills, education, and projects. What would you like to know?",
       isBot: true
     }
   ]);
 
+  // === Personal Data ===
+  const data = {
+    personal: {
+      name: "Arihant Jain",
+      age: 22,
+      email: "arihant.jain@email.com",
+      phone: "+91 98765 43210",
+      location: "Moradabad, India",
+      about: "A passionate full-stack developer and AI enthusiast, always eager to learn new technologies and build innovative solutions."
+    },
+    skills: [
+      "React.js", "Next.js", "TypeScript", "Node.js", "Express.js",
+      "MongoDB", "MySQL", "Firebase", "TailwindCSS", "Framer Motion"
+    ],
+    projects: [
+      "AI-powered Portfolio Website",
+      "E-commerce Platform with Payment Gateway",
+      "IoT Home Automation Dashboard",
+      "Book Finder Web App",
+      "AI Chatbot for Resume Assistance"
+    ],
+    education: {
+      degree: "Bachelor of Computer Applications (BCA)",
+      university: "Teerthanker Mahaveer University, Moradabad",
+      year: "2025",
+      cgpa: "8.7/10"
+    },
+    experience: "As a fresher, Arihant has completed 10+ personal and academic projects, demonstrating strong problem-solving and full-stack development skills.",
+    certifications: [
+      "React.js Advanced - Coursera",
+      "Node.js API Development - Udemy",
+      "AI & Machine Learning Basics - Google",
+    ],
+    social: {
+      github: "https://github.com/arihant-jain",
+      linkedin: "https://linkedin.com/in/arihant-jain",
+      portfolio: "https://arihantportfolio.com"
+    }
+  };
+
+  // === Quick Questions ===
   const quickQuestions = [
     "What are Arihant's key skills?",
     "Tell me about his projects",
     "What is his experience level?",
-    "How can I contact him?"
+    "Where did he study?",
+    "Show me his certifications",
+    "How can I contact him?",
+    "Share his social profiles"
   ];
 
   const handleSendMessage = (text?: string) => {
@@ -33,18 +77,30 @@ const AIAssistant: React.FC = () => {
     setMessages(prev => [...prev, newUserMessage]);
     setMessage('');
 
-    // Simulate AI response
+    // === AI Response Logic ===
     setTimeout(() => {
-      let response = "I'm here to help! Let me tell you more about Arihant's qualifications and experience.";
-      
-      if (messageText.toLowerCase().includes('skill')) {
-        response = "Arihant is proficient in modern web technologies including React, TypeScript, Node.js, and various databases. As a fresher, he's passionate about full-stack development and continuously learning new technologies.";
-      } else if (messageText.toLowerCase().includes('project')) {
-        response = "Arihant has worked on diverse projects including e-commerce platforms, AI chatbots, mobile apps, and IoT solutions. Each project demonstrates his ability to learn quickly and implement modern development practices.";
-      } else if (messageText.toLowerCase().includes('experience')) {
-        response = "As a fresher, Arihant brings fresh perspectives and enthusiasm to software development. He's completed various personal projects and is eager to contribute to real-world applications in a professional environment.";
-      } else if (messageText.toLowerCase().includes('contact')) {
-        response = "You can reach Arihant at arihant.jain@email.com or +91 98765 43210. He's also active on GitHub and LinkedIn. Feel free to connect and discuss opportunities!";
+      let response = "I'm here to help!";
+
+      const lowerMsg = messageText.toLowerCase();
+
+      if (lowerMsg.includes("skill")) {
+        response = `Arihant's key skills include: ${data.skills.join(", ")}.`;
+      } else if (lowerMsg.includes("project")) {
+        response = `Some of Arihant's projects are: ${data.projects.join(", ")}.`;
+      } else if (lowerMsg.includes("experience")) {
+        response = data.experience;
+      } else if (lowerMsg.includes("study") || lowerMsg.includes("education")) {
+        response = `${data.education.degree} at ${data.education.university}, graduating in ${data.education.year} with a CGPA of ${data.education.cgpa}.`;
+      } else if (lowerMsg.includes("certification")) {
+        response = `Arihant has completed certifications in: ${data.certifications.join(", ")}.`;
+      } else if (lowerMsg.includes("contact") || lowerMsg.includes("email") || lowerMsg.includes("phone")) {
+        response = `You can reach Arihant at ${data.personal.email} or call ${data.personal.phone}.`;
+      } else if (lowerMsg.includes("social") || lowerMsg.includes("profile")) {
+        response = `GitHub: ${data.social.github}\nLinkedIn: ${data.social.linkedin}\nPortfolio: ${data.social.portfolio}`;
+      } else if (lowerMsg.includes("about") || lowerMsg.includes("yourself")) {
+        response = data.personal.about;
+      } else {
+        response = "I couldn't find an exact match for that. Try asking about skills, projects, education, or contact info.";
       }
 
       const botMessage = {
@@ -54,7 +110,7 @@ const AIAssistant: React.FC = () => {
       };
 
       setMessages(prev => [...prev, botMessage]);
-    }, 1000);
+    }, 700);
   };
 
   return (
@@ -106,7 +162,7 @@ const AIAssistant: React.FC = () => {
                         ? 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200'
                         : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
                     }`}>
-                      <p className="text-sm">{msg.text}</p>
+                      <p className="text-sm whitespace-pre-line">{msg.text}</p>
                     </div>
                   </motion.div>
                 ))}
